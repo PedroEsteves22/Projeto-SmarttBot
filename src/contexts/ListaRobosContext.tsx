@@ -13,6 +13,7 @@ interface ListaRobo {
   totalTrade: number;
   tradesPorDia: number;
   ativo: string;
+  roboId: string;
 }
 
 interface CreateRoboInput {
@@ -61,10 +62,15 @@ export function ListaRobosProvider({ children }:ListaRobosProviderProps) {
       simulado,
       ativo,
       isActive: true,
+      //os valores são gerados de forma aleatória de -100 até 100
       saldoDiario: Number((Math.random() * 201 - 100).toFixed(2)),
       valorCompra: Number((Math.random() * 201 - 100).toFixed(2)),
+      //os valores são gerados de forma aleatória de 1 até 50
       totalTrade: Number(Math.ceil(Math.random() * 50)),
+      //os valores são gerados de forma aleatória de 1 até 10
       tradesPorDia: Number(Math.ceil(Math.random() * 10)),
+      //os valores são gerados de acordo com a data atual em milisegundos
+      roboId: String(new Date().getTime())
     })
 
     setListaRobos(state => [...state, response.data]);
@@ -95,7 +101,7 @@ export function ListaRobosProvider({ children }:ListaRobosProviderProps) {
       tradesPorDia: Number(Math.ceil(Math.random() * 10)),
     }
 
-    await api.patch(`/listaRobos/${id}`, updateRoboData);
+    await api.put(`/listaRobos/${id}`, updateRoboData);
 
     //atualizar a página ao ligar o robô
     setListaRobos((state) =>
@@ -111,7 +117,7 @@ export function ListaRobosProvider({ children }:ListaRobosProviderProps) {
       isActive: false,
     }
 
-    await api.patch(`/listaRobos/${id}`, stopRoboData);
+    await api.put(`/listaRobos/${id}`, stopRoboData);
     
     //atualizar a página quando parar um robô
     setListaRobos((state) =>

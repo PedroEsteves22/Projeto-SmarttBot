@@ -21,7 +21,7 @@ export function ListaRobos() {
               {listaRobo.isActive && <VerificaRoboLigado $statusCores="ligadoPositivo">Executando</VerificaRoboLigado>}
               {!listaRobo.isActive && <VerificaRoboLigado $statusCores="desligadoNegativo">Parado</VerificaRoboLigado>}
             </RoboHeader>
-            <span className="id">#{listaRobo.id}</span>
+            <span className="id">#{listaRobo.roboId}</span>
 
             <RoboInfo>
               <span>{listaRobo.simulado}</span>

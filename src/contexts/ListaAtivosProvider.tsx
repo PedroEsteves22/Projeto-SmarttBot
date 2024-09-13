@@ -35,8 +35,8 @@ export function ListaAtivosProvider({ children }:ListaAtivosProviderProps) {
         // Somando totalTrade
         const resultado = totalTradefiltrado.reduce((acc, item) => acc + item, 0);
   
-        // Atualizando a API com o patch
-        await api.patch(`/listaAtivos/${lista.id}`, {
+        // Atualizando a API
+        await api.put(`/listaAtivos/${lista.id}`, {
           transacoes: resultado,
         });
   
