@@ -1,0 +1,101 @@
+{
+  "listaRobos": [
+    {
+      "id": "076b",
+      "titulo": "robo1234",
+      "capital": 6788,
+      "estrategia": "Price action",
+      "simulado": "Otimista",
+      "ativo": "LREN3",
+      "isActive": true,
+      "saldoDiario": -50.43,
+      "valorCompra": 19.15,
+      "totalTrade": 15,
+      "tradesPorDia": 4
+    },
+    {
+      "id": "e1ed",
+      "titulo": "lklk",
+      "capital": 412,
+      "estrategia": "Tangram",
+      "simulado": "Pessimista",
+      "ativo": "ABEV3",
+      "isActive": false,
+      "saldoDiario": 65.36,
+      "valorCompra": 33.94,
+      "totalTrade": 35,
+      "tradesPorDia": 9
+    },
+    {
+      "id": "153a",
+      "titulo": "ytyty",
+      "capital": 234,
+      "estrategia": "Tangram",
+      "simulado": "Pessimista",
+      "ativo": "BBAS3",
+      "isActive": false,
+      "saldoDiario": "-1.14",
+      "valorCompra": "-8.78",
+      "totalTrade": 42,
+      "tradesPorDia": 6
+    },
+    {
+      "id": "cc94",
+      "titulo": "teste",
+      "capital": 1234,
+      "estrategia": "Tangram",
+      "simulado": "Pessimista",
+      "ativo": "WING20",
+      "isActive": true,
+      "saldoDiario": "-83.70",
+      "valorCompra": "-69.73",
+      "totalTrade": 37,
+      "tradesPorDia": 5
+    },
+    {
+      "id": "24b1",
+      "titulo": "14234",
+      "capital": 1234,
+      "estrategia": "Tangram",
+      "simulado": "Pessimista",
+      "ativo": "WING20",
+      "isActive": true,
+      "saldoDiario": -39.21,
+      "valorCompra": 77.65,
+      "totalTrade": 37,
+      "tradesPorDia": 7
+    }
+  ],
+  "listaAtivos": [
+    {
+      "id": "1",
+      "nome": "WING20",
+      "transacoes": 74
+    },
+    {
+      "id": "2",
+      "nome": "BOVA11",
+      "transacoes": 0
+    },
+    {
+      "id": "3",
+      "nome": "LREN3",
+      "transacoes": 15
+    },
+    {
+      "id": "4",
+      "nome": "ABEV3",
+      "transacoes": 35
+    },
+    {
+      "id": "5",
+      "nome": "BBAS3",
+      "transacoes": 42
+    },
+    {
+      "id": "6",
+      "nome": "VALE3",
+      "transacoes": 0
+    }
+  ]
+}
