@@ -14,68 +14,55 @@
       "tradesPorDia": 4
     },
     {
-      "id": "e1ed",
-      "titulo": "lklk",
-      "capital": 412,
-      "estrategia": "Tangram",
-      "simulado": "Pessimista",
-      "ativo": "ABEV3",
-      "isActive": false,
-      "saldoDiario": 65.36,
-      "valorCompra": 33.94,
-      "totalTrade": 35,
-      "tradesPorDia": 9
-    },
-    {
-      "id": "153a",
-      "titulo": "ytyty",
-      "capital": 234,
-      "estrategia": "Tangram",
-      "simulado": "Pessimista",
-      "ativo": "BBAS3",
-      "isActive": false,
-      "saldoDiario": "-1.14",
-      "valorCompra": "-8.78",
-      "totalTrade": 42,
-      "tradesPorDia": 6
-    },
-    {
       "id": "cc94",
       "titulo": "teste",
       "capital": 1234,
       "estrategia": "Tangram",
       "simulado": "Pessimista",
       "ativo": "WING20",
-      "isActive": true,
-      "saldoDiario": "-83.70",
-      "valorCompra": "-69.73",
-      "totalTrade": 37,
-      "tradesPorDia": 5
+      "isActive": false,
+      "saldoDiario": -7.28,
+      "valorCompra": -62.12,
+      "totalTrade": 16,
+      "tradesPorDia": 4
     },
     {
-      "id": "24b1",
-      "titulo": "14234",
-      "capital": 1234,
+      "id": "3cad",
+      "titulo": "robo3",
+      "capital": 2344,
+      "estrategia": "Price action",
+      "simulado": "Otimista",
+      "ativo": "BOVA11",
+      "isActive": true,
+      "saldoDiario": 57.56,
+      "valorCompra": -98.52,
+      "totalTrade": 8,
+      "tradesPorDia": 1
+    },
+    {
+      "id": "3637",
+      "titulo": "robo4",
+      "capital": 1111,
       "estrategia": "Tangram",
-      "simulado": "Pessimista",
+      "simulado": "Otimista",
       "ativo": "WING20",
       "isActive": true,
-      "saldoDiario": -39.21,
-      "valorCompra": 77.65,
-      "totalTrade": 37,
-      "tradesPorDia": 7
+      "saldoDiario": -46.17,
+      "valorCompra": 85.96,
+      "totalTrade": 7,
+      "tradesPorDia": 6
     }
   ],
   "listaAtivos": [
     {
       "id": "1",
       "nome": "WING20",
-      "transacoes": 74
+      "transacoes": 23
     },
     {
       "id": "2",
       "nome": "BOVA11",
-      "transacoes": 0
+      "transacoes": 8
     },
     {
       "id": "3",
@@ -85,12 +72,12 @@
     {
       "id": "4",
       "nome": "ABEV3",
-      "transacoes": 35
+      "transacoes": 0
     },
     {
       "id": "5",
       "nome": "BBAS3",
-      "transacoes": 42
+      "transacoes": 0
     },
     {
       "id": "6",
