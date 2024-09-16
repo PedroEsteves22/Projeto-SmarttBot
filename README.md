@@ -1,54 +1,58 @@
-<<<<<<< HEAD
 # Projeto-estagio-SmarttBot
 =======
 # React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+No projeto é possível fazer:
 
-Currently, two official plugins are available:
+- Criar Robô
+- Parar Robô
+- Ligar Robô
+- Excluir Robô
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tecnologias utilizadas.
 
-## Expanding the ESLint configuration
+- React hook form e zod: para a validação do formulário
+- axios: para conectar o projeto na API
+- Radix: componentes de interface para criar designs
+- styled components: criação de estilos CSS
+- phosphor-react: utilizar ícones no projeto
+- MockApi: para a criação da API
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-- Configure the top-level `parserOptions` property like this:
+## Criar Robô
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+Ao criar um novo robô, você precisa selecionar algumas informações:
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+- Nome do robô
+- Capital inicial
+- Ativo
+- estratégia
+- Simulador
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+Após clicar em "criar robô" um novo robô é criado mas algumas informações são criadas de forma aleatória, assim simulando como se o robô estivesse executando:
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
->>>>>>> 03dc919 (realizando deploy no projeto)
+- Saldo diário: valor entre -100 até 100
+- trades do dia: valor entre 1 até 10
+- total de trades: valor entre 1 até 50
+- valor compra: valor entre -100 até 100
+
+## Parar Robô
+
+Ao parar um robô, somente vai alterar o "executando" para "parado"
+
+## Ligar Robô
+
+Ao ligar um robô, vai alterar "parado" para "executando" e todas as informações que são enviadas de forma aleatória ao criar um robô novo, será enviado os mesmos valores novamente de forma aleatória.
+
+## Excluir Robô
+
+Ao excluir um robô, ele será removido da tela permanentemente.
+
+## Informações na tela
+
+Na tela, além da lista de robôs, possui várias outras informações, e essas informações são alteradas dinamicamente de acordo com os valores dos robôs, e será alterado caso os valores do robô sejam alterados.
+
+- Resumo momvimentação: é a soma do saldo diário de todos os robôs criados.
+- total de transações realizadas: é a soma do total de trades de todos os robôs criados
+- papéis negociados: é a soma do total de trades de cada robô de acordo com o ativo selecionado, se não tiver nenhum robô que está utilizando certo ativo, esse ativo não irá aparecer na tela
+- Robôs diponíveis: o limite de robôs para criar são 12 robôs, esse limite seria somente uma simulação como se o cliente tivesse um plano que opere até 12 robôs, então a infomração de robôs disponíveis será alterada dinamicamente de acordo com o número de robôs criados, chegando a zero, não será possível criar um novo robô.
