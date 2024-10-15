@@ -11,6 +11,8 @@ interface listaAtivos {
 interface ListaAtivosType {
   listaAtivos: listaAtivos[]
   atualizarAtivos: () => void;
+  loading: boolean;
+  loadingExibirTelaAtivo: boolean;
 }
 
 interface ListaAtivosProviderProps {
@@ -22,6 +24,8 @@ export const ListaAtivosContext = createContext({} as ListaAtivosType)
 export function ListaAtivosProvider({ children }:ListaAtivosProviderProps) {
   const [ listaAtivos, setListaAtivos ] = useState<listaAtivos[]>([]);
   const { listaRobos } = useContext(ListaRobosContext);
+  const [ loading, setLoading ] = useState(false);
+  const [ loadingExibirTelaAtivo, setLoadingExibirTelaAtivo ] = useState(false);
 
   const atualizarAtivos = async () => {
     try {
@@ -50,16 +54,28 @@ export function ListaAtivosProvider({ children }:ListaAtivosProviderProps) {
           )
         );
       });
+      setLoading(true);
+      new Promise(resolve => setTimeout(resolve, 2000));
   
     } catch (error) {
       console.error('Erro ao atualizar os ativos:', error);
+    } finally {
+      setLoading(false);
     }
   };
 
   async function loadListAtivos() {
-    const response = await api.get('/listaAtivos')
+    try {
+      setLoading(true);
+      const response = await api.get('/listaAtivos')
 
-    setListaAtivos(response.data)
+      setListaAtivos(response.data)
+    } catch {
+      console.error('Erro ao carregar os ativos')
+    } finally {
+      setLoading(false);
+      setLoadingExibirTelaAtivo(true);
+    }
   }
 
   useEffect(() => {
@@ -67,7 +83,7 @@ export function ListaAtivosProvider({ children }:ListaAtivosProviderProps) {
   }, [])
 
   return(
-    <ListaAtivosContext.Provider value={{ listaAtivos, atualizarAtivos }}>
+    <ListaAtivosContext.Provider value={{ listaAtivos, atualizarAtivos, loading, loadingExibirTelaAtivo }}>
       {children}
     </ListaAtivosContext.Provider>
   )

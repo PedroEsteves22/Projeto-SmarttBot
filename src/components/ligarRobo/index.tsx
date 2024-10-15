@@ -3,15 +3,16 @@ import { ButtonAction, ButtonLigarRobo, Cancel, Content, Overlay, Title } from "
 import { ListaRobosContext } from "../../contexts/ListaRobosContext";
 import * as AlertDialog from '@radix-ui/react-alert-dialog';
 
-interface LigarRoboId {
+interface LigarRobo {
   id: string;
+  nomeRobo: string;
 }
 
-export function LigarRobo({ id }: LigarRoboId) {
+export function LigarRobo({ id, nomeRobo }: LigarRobo) {
   const { ligarRobo } = useContext(ListaRobosContext);
 
   function handleLigarRobo() {
-    ligarRobo({ id })
+    ligarRobo({ id, nomeRobo })
   }
 
   return(

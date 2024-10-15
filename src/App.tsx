@@ -4,6 +4,7 @@ import { GlobalStyle } from "./styles/global"
 import { AnaliseGeral } from "./pages/analiseGeral"
 import { ListaRobosProvider } from "./contexts/ListaRobosContext"
 import { ListaAtivosProvider } from "./contexts/ListaAtivosProvider"
+import { Toaster } from "sonner"
 
 function App() {
 
@@ -14,6 +15,18 @@ function App() {
       <ListaRobosProvider>
         <ListaAtivosProvider>
           <AnaliseGeral />
+
+          <Toaster 
+            toastOptions={{
+              style: {
+                height: '70px',
+                paddingLeft: '15px'
+              },
+            }} 
+            position="top-right" 
+            richColors
+          />
+
         </ListaAtivosProvider>
       </ListaRobosProvider>
       

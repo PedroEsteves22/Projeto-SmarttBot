@@ -1,5 +1,5 @@
 import { GlobalBackgroundWhite } from "../../styles/global";
-import { AvisoLimiteRobo, BotaoCriarRobo, CriarRoboContainer, CriarRoboContent } from "./styles";
+import { AvisoLimiteRobo, BotaoCriarRobo, CriarRoboContainer, CriarRoboContent, LoadingBox, LoadingSquare } from "./styles";
 import criarRoboButton from '../../assets/criarRobo.svg';
 import * as Dialog from '@radix-ui/react-dialog';
 import { CriarRoboModal } from "../CriarRoboModal";
@@ -14,16 +14,24 @@ export const OpenModal = createContext({} as CloseModalProps)
 
 export function CriarRobo() {
   const [open, setOpen] = useState(false);
-  const { listaRobos } = useContext(ListaRobosContext);
+  const { listaRobos2 } = useContext(ListaRobosContext);
+  const [ loadingScreen, setLoadingScreen ] = useState(true);
+  const { loadingExibirTelaRobo } = useContext(ListaRobosContext);
 
   //o valor é igual a 12 somente simulando, como se o cliente tivesse um plano que o limite de robôs fosse igual a 12
   const totalRobos = 12;
   const [ robosDisponivel, setRobosDisponivel ] = useState(totalRobos);
 
+  useEffect(() => {
+    if(loadingExibirTelaRobo) {
+      setLoadingScreen(false);
+    }
+  }, [loadingExibirTelaRobo])
+
   //fazendo a subtração do total de robôs criados com o limite de robôs que é igual a 12
   useEffect(() => {
-    setRobosDisponivel(totalRobos - listaRobos.length)
-  }, [listaRobos])
+    setRobosDisponivel(totalRobos - listaRobos2.length)
+  }, [listaRobos2, loadingScreen])
 
   //função para fechar o modal
   function CloseModal() {
@@ -35,26 +43,35 @@ export function CriarRobo() {
 
   return(
     <GlobalBackgroundWhite>
-      <CriarRoboContainer>
-        <Dialog.Root open={open} onOpenChange={setOpen}>
-          <Dialog.Trigger asChild>
-            <BotaoCriarRobo disabled={verificaRobosDisponiveis}>
-              <img src={criarRoboButton} alt="" />
-            </BotaoCriarRobo>
-          </Dialog.Trigger>
 
-          <OpenModal.Provider value={{ CloseModal }}>
-            <CriarRoboModal />
-          </OpenModal.Provider>
+      {loadingScreen ? (
+        <LoadingBox>
+          <LoadingSquare />
+        </LoadingBox>
+      ) : 
+        <>
+          <CriarRoboContainer>
+            <Dialog.Root open={open} onOpenChange={setOpen}>
+              <Dialog.Trigger asChild>
+                <BotaoCriarRobo disabled={verificaRobosDisponiveis}>
+                  <img src={criarRoboButton} alt="" />
+                </BotaoCriarRobo>
+              </Dialog.Trigger>
 
-        </Dialog.Root>
+              <OpenModal.Provider value={{ CloseModal }}>
+                <CriarRoboModal />
+              </OpenModal.Provider>
 
-        <CriarRoboContent>
-          <h2>Adicionar novo robô</h2>
-          <p>Você possui <span>{robosDisponivel} robôs</span> disponíveis</p>
-          {verificaRobosDisponiveis && <AvisoLimiteRobo>Você atingiu o limite de robôs, para criar novos robôs, exclua um robô primeiro!</AvisoLimiteRobo>}
-        </CriarRoboContent>
-      </CriarRoboContainer>
+            </Dialog.Root>
+
+            <CriarRoboContent>
+              <h2>Adicionar novo robô</h2>
+              <p>Você possui <span>{robosDisponivel} robôs</span> disponíveis</p>
+              {verificaRobosDisponiveis && <AvisoLimiteRobo>Você atingiu o limite de robôs, para criar novos robôs, exclua um robô primeiro!</AvisoLimiteRobo>}
+            </CriarRoboContent>
+          </CriarRoboContainer>
+        </>
+      }
     </GlobalBackgroundWhite>
   )
 }

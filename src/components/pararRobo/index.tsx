@@ -1,17 +1,18 @@
-import { useContext } from "react";
+import { useContext} from "react";
 import { ButtonAction, ButtonPararRobo, Cancel, Content, Overlay, Title } from "./styles";
 import { ListaRobosContext } from "../../contexts/ListaRobosContext";
 import * as AlertDialog from '@radix-ui/react-alert-dialog';
 
-interface PararRoboId {
+interface PararRoboInfo {
   id: string;
+  nomeRobo: string;
 }
 
-export function PararRobo({ id }: PararRoboId) {
+export function PararRobo({ id, nomeRobo }: PararRoboInfo) {
   const { pararRobo } = useContext(ListaRobosContext)
 
   function handlePararRobo() {
-    pararRobo({ id })
+    pararRobo({ id, nomeRobo })
   }
 
   return(

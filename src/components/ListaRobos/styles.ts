@@ -156,3 +156,46 @@ export const ButtonContainer = styled.div`
   margin-top: 1rem;
 `;
 
+export const LoadingOverlay = styled.div`
+  background-color: rgba(0,0,0,0.85);
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  overflow: hidden;
+`;
+
+export const LoadingBox = styled.div`
+  margin: 0 auto;
+  max-width: 1800px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+`;
+
+export const LoadingSquare = styled.div`
+  width: 100%;
+  height: 300px;
+  background-image: linear-gradient(90deg, #E3E2E3 0px, #BFB5B5 50%, #F5F5F5 100% );
+  background-color: #eee;
+  background-size: 200%;
+  animation: skelton 1.5s infinite linear;
+
+  @keyframes skelton {
+    from {
+      background-position: 0px;
+    }
+    to {
+      background-position: -200%;
+    }
+  }
+`;
+
+export const NenhumRoboCriado = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+

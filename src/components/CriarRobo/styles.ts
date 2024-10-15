@@ -62,3 +62,27 @@ export const AvisoLimiteRobo = styled.h3`
     font-size: 0.7rem;
   }
 `;
+
+export const LoadingSquare = styled.div`
+  width: 100%;
+  height: 70px;
+  background-image: linear-gradient(90deg, #E3E2E3 0px, #BFB5B5 50%, #F5F5F5 100% );
+  background-color: #eee;
+  background-size: 200%;
+  animation: skelton 1.5s infinite linear;
+
+  @keyframes skelton {
+    from {
+      background-position: 0px;
+    }
+    to {
+      background-position: -200%;
+    }
+  }
+`;
+
+export const LoadingBox = styled.div`
+  max-width: 220px;
+  height: 20px;
+  margin-bottom: 50px;
+`;

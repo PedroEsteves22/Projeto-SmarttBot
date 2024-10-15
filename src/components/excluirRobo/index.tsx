@@ -4,15 +4,16 @@ import { Trash } from "phosphor-react";
 import * as AlertDialog from '@radix-ui/react-alert-dialog';
 import { ButtonAction, ButtonExcluirRobo, Cancel, Content, ExcluirRoboBotao, Overlay, Title } from "./styles";
 
-interface RoboId {
+interface RoboInfo {
   id: string;
+  nomeRobo: string;
 }
 
-export function ExcluirRobo({ id }:RoboId) {
+export function ExcluirRobo({ id, nomeRobo }:RoboInfo) {
   const { deleteRobo } = useContext(ListaRobosContext);
 
   function handleClickExcluir() {
-    deleteRobo({ id });
+    deleteRobo({ id, nomeRobo });
   }
 
   return(

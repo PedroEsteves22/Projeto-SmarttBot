@@ -55,8 +55,6 @@ export function CriarRoboModal() {
   async function handleCreateNewRobo(data: NewCreateRoboFormInputs) {
     const { titulo, capital, estrategia, simulado, ativo } = data;
 
-    await new Promise(resolve => setTimeout(resolve, 1000)); //após clicar em criar robô, irá ter um delay de 1 segundo.
-
     await createRobo({
       titulo,
       capital,
@@ -64,9 +62,14 @@ export function CriarRoboModal() {
       simulado,
       ativo,
     })
-  
-    //modal será fechado assim que um robô for criado
-    CloseModal();
+
+    try{
+      //modal será fechado assim que um robô for criado
+      CloseModal();
+    } catch {
+      console.error('Erro ao fechar o modal');
+    }
+
     //o formulário será resetado ao criar um novo robô
     reset();
   }
@@ -127,7 +130,7 @@ export function CriarRoboModal() {
                         {listaAtivos.map((lista) => {
                           return(
                             <StyledItem value={lista.nome} key={lista.id}>
-                              <Select.ItemText>{lista.nome}</Select.ItemText>
+                              <Select.ItemText> <span>{lista.nome}</span> </Select.ItemText>
                             </StyledItem>
                           )
                         })}
@@ -176,10 +179,10 @@ export function CriarRoboModal() {
                     <SelectButton>
                       <StyledViewport>
                         <StyledItem value='Pessimista'>
-                          <Select.ItemText>Pessimista</Select.ItemText>
+                          <Select.ItemText> <span>Pessimista</span> </Select.ItemText>
                         </StyledItem>
                         <StyledItem value='Otimista'>
-                          <Select.ItemText>Otimista</Select.ItemText>
+                          <Select.ItemText> <span>Otimista</span> </Select.ItemText>
                         </StyledItem>
                       </StyledViewport>
                     </SelectButton>
