@@ -596,6 +596,18 @@ For more information, see https://radix-ui.com/primitives/docs/components/${t.do
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
+
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
 `,ua=z.div`
   width: 100%;
   height: 300px;
@@ -1034,6 +1046,7 @@ For more information, see https://radix-ui.com/primitives/docs/components/alert-
   transition: 0.3s;
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
+  
 
   &:not(:disabled):hover {
     background: #343442;
@@ -1045,6 +1058,10 @@ For more information, see https://radix-ui.com/primitives/docs/components/alert-
 
   @media (max-width: 900px) {
     font-size: 0.7rem;
+
+    &:not(:disabled):hover {
+      background: ${e=>e.theme.red};
+  }
   }
 `,W3=lw({query:Aa()});function Z3(){const{fetchListRobo:e}=x.useContext(un),{register:t,handleSubmit:n,reset:r,watch:o}=Ew({resolver:bw(W3)});async function i(u){await e(u.query),r()}async function s(){await e()}const l=!o("query");return v.jsx(v.Fragment,{children:v.jsxs(B3,{children:[v.jsxs(U3,{onSubmit:n(i),children:[v.jsx("input",{type:"text",placeholder:"Busque por robôs",...t("query")}),v.jsxs("button",{type:"submit",disabled:l,children:[v.jsx(ex,{size:15}),"Buscar"]})]}),v.jsx(H3,{onClick:s,children:"Limpar Filtro"})]})})}const K3=z.main`
   display: flex;
