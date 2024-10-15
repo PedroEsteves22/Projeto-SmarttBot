@@ -75,6 +75,7 @@ export const BotaoLimparFiltro = styled.button`
   transition: 0.3s;
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
+  
 
   &:not(:disabled):hover {
     background: #343442;
@@ -86,5 +87,9 @@ export const BotaoLimparFiltro = styled.button`
 
   @media (max-width: 900px) {
     font-size: 0.7rem;
+
+    &:not(:disabled):hover {
+      background: ${props => props.theme['red']};
+  }
   }
 `;
