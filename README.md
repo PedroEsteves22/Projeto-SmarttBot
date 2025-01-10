@@ -1,4 +1,4 @@
-# Projeto-estagio-SmarttBot
+# Projeto-SmarttBot
 =======
 # React + TypeScript + Vite
 
